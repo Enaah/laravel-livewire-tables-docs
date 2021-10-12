@@ -9,7 +9,7 @@ Creating filters is not required, and the filters box will be hidden if none are
 
 To create filters, you return an array of `Filter` class objects from the `filters()` method.
 
-Currently, there are two types of filters: select box & date.
+The current types of filters are: `select`, `multiSelect`, and `date`.
 
 There are two steps to making a filter:
 
@@ -44,7 +44,14 @@ public function filters(): array
             ->date([
                 'min' => now()->subYear()->format('Y-m-d'), // Optional
                 'max' => now()->format('Y-m-d') // Optional
-            ])
+            ]),
+         'tags' => Filter::make('Tags')
+            ->multiSelect([
+                'tag1' => 'Tags 1',
+                'tag2' => 'Tags 2',
+                'tag3' => 'Tags 3',
+                'tag4' => 'Tags 4',
+            ]),     
     ];
 }
 ```
