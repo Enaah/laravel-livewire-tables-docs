@@ -11,7 +11,7 @@ fullscreen: true
 
 <alert>This feature is available in v1.16 and above</alert>
 
-If you would like to make the contents of the cell clickable, you may use the `toLink` method on the column:
+If you would like to make the contents of the cell clickable, you may use the `linkTo` method on the column:
 
 ```php
 Column::make('Name')
