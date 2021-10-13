@@ -129,6 +129,52 @@ public function setFooterDataAttributes(Column $column, $rows): array
 }
 ```
 
+<alert>The following secondary header methods are only available in v1.18 and above</alert>
+
+<alert>**Note:** Secondary Header row methods receive a collection of the rows on the given page. A good example would be setting the background color of a cell depending on the sum of a column.</alert>
+
+```php
+public function setSecondaryHeaderRowClass($rows): ?string
+{
+    return null;
+}
+```
+
+```php
+public function setSecondaryHeaderRowId($rows): ?string
+{
+    return null;
+}
+```
+
+```php
+public function setSecondaryHeaderRowAttributes($rows): array
+{
+    return [];
+}
+```
+
+```php
+public function setSecondaryHeaderDataClass(Column $column, $rows): ?string
+{
+    return null;
+}
+```
+
+```php
+public function setSecondaryHeaderDataId(Column $column, $rows): ?string
+{
+    return null;
+}
+```
+
+```php
+public function setSecondaryHeaderDataAttributes(Column $column, $rows): array
+{
+    return [];
+}
+```
+
 ## Examples:
 
 ```php
@@ -185,7 +231,7 @@ public function setTableDataAttributes(Column $column, $row): array
 }
 ```
 
-<alert>The footer methods follow the same principals but, here's an example on modifying the cell based on the sum of some data in the table.</alert>
+<alert>The secondary header/footer methods follow the same principals but, here's an example on modifying the cell based on the sum of some data in the table.</alert>
 
 ```php
 public function setFooterDataClass(Column $column, $rows): ?string

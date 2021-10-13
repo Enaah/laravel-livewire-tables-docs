@@ -2,7 +2,7 @@
 title: Footer Functionality
 menuTitle: 'Footer Functionality'
 description: ''
-position: 11
+position: 12
 category: 'Columns'
 fullscreen: true
 ---
@@ -46,4 +46,4 @@ Calling `footer` on any column will enable the custom footer, any column without
 
 See also, [row and cell customization](display/Customizing-table-rows-and-cells).
 
-<alert>**Note:** the `asHtml()` column method is used for both the data and the footer cells.</alert>
+<alert>**Note:** the `asHtml()` column method is used for both the data and the secondary header/footer cells.</alert>
