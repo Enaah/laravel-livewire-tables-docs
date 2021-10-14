@@ -79,14 +79,12 @@ As you can see we are just using the built-in Eloquent when method to check exis
 
 If your filter has numeric keys, you may run into issues when you have a key that equals zero.
 
-The Eloquent `when` method will treat your `0` key as false, and not interpret the query at all.
-
 You will have to explicitly check:
 
 ```php
 public function query(): Builder
 {
-    $query = User::with('attributes', 'parent')
+    return User::with('attributes', 'parent')
         ->when($this->getFilter('email'), fn ($query, $email) => $email === 'yes' ? $query->whereNotNull('email') : $query->whereNull('email'))
         ->when($this->hasFilter('verified'), function ($query) {
             if ($this->getFilter('verified') === 1) {
@@ -95,7 +93,5 @@ public function query(): Builder
                 $query = $query->whereNull('email');
             }
         });
-
-    return $query;
 }
 ```
