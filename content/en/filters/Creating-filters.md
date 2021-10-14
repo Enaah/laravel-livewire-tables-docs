@@ -87,15 +87,14 @@ You will have to explicitly check:
 public function query(): Builder
 {
     $query = User::with('attributes', 'parent')
-        ->when($this->getFilter('email'), fn ($query, $email) => $email === 'yes' ? $query->whereNotNull('email') : $query->whereNull('email'));
-
-    if ($this->hasFilter('verified')) { // 0 will not return false
-        if ($this->getFilter('verified') === 1) {
-            $query = $query->whereNotNull('email');
-        } else {
-            $query = $query->whereNull('email');
-        }
-    }
+        ->when($this->getFilter('email'), fn ($query, $email) => $email === 'yes' ? $query->whereNotNull('email') : $query->whereNull('email'))
+        ->when($this->hasFilter('verified'), function ($query) {
+            if ($this->getFilter('verified') === 1) {
+                $query = $query->whereNotNull('email');
+            } else {
+                $query = $query->whereNull('email');
+            }
+        });
 
     return $query;
 }
