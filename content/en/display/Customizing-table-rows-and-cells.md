@@ -7,6 +7,19 @@ category: 'Display'
 fullscreen: true
 ---
 
+### Table Classes
+
+<alert>This feature is available in v1.19 and above</alert>
+
+You may replace the classes on the table component with the following method:
+
+```php
+public function setTableClass($row): ?string
+{
+    return null;
+}
+```
+
 ### Clickable Cells
 
 <alert>This feature is available in v1.16 and above</alert>
