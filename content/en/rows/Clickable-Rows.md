@@ -17,6 +17,23 @@ public function getTableRowUrl($row): string
 
 It will be passed the current model as `$row`.
 
+## Setting the target
+
+If you would like to set the click target to anything other than `_self` you may use the following method:
+
+<alert type="info">The following method is only available in v1.19 and above</alert>
+
+```php
+public function getTableRowUrlTarget($row): ?string
+{
+    if ($row->type === 'this') {
+        return '_blank';
+    }
+    
+    return null;
+}
+```
+
 ## Working with links on clickable rows
 
 Since the row itself is clickable, you might have issues with event bubbling if you have links in your cells on top of the clickable rows. My current solution is to use Livewire to prevent the default action and stop the event bubbling and then redirect.
